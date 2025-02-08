@@ -1,4 +1,4 @@
-public class LimitedCommissionEmployee extends CommissionEmployee {
+public class LimitedCommissionEmployee extends CommissionEmployee { // done
 
     private double basePay;
 
@@ -8,7 +8,13 @@ public class LimitedCommissionEmployee extends CommissionEmployee {
     }
 
     public double calcPrebonusPay() {// done
-        return basePay;
+        if (super.calcPrebonusPay() >= basePay && super.calcPrebonusPay() <= basePay * 2) {
+            return super.calcPrebonusPay();
+        } else if (super.calcPrebonusPay() > basePay * 2) {
+            return basePay * 2;
+        } else {
+            return basePay;
+        }
     }
 
     public String getJobCode() { // done

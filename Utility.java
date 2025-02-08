@@ -20,7 +20,7 @@ public class Utility implements PayableEntity {
     }
 
     public String toString() { // done
-        String ret = String.format("%-20s $%10f", name, amountOwed());
+        String ret = String.format("%-20s $%10.2f", name, amountOwed());
         return ret;
     }
 

@@ -27,20 +27,26 @@ public class Company {
     }
 
     public String createPayrollListing() { // done
-        String ret = String.format("%s Payroll\n%-15s %-4s $%8.2f $%8.2f", name, "Name", "Code", "Pay", "Total Pay");
+        String ret = String.format("%s Payroll\n%-15s %-5s %8s %8s\n", name, "Name", "Code", "Pay", "Total Pay");
 
         for (int i = 0; i < employees.length; i++) {
-            ret = ret + "\n" + employees[i].toString();
+            if (employees[i] == null) {
+                continue;
+            }
+            ret = ret + employees[i].toString() + "\n";
         }
 
         return ret;
     }
 
     public String createUtilityListing() { // done
-        String ret = String.format("%s Utilities\n%-20s $%10f", name, "Name", "Bill Amount");
+        String ret = String.format("%s Utilities\n%-20s %10s\n", name, "Name", "Bill Amount");
 
         for (int i = 0; i < utilities.length; i++) {
-            ret = ret + "\n" + utilities[i].toString();
+            if (utilities[i] == null) {
+                continue;
+            }
+            ret = ret + utilities[i].toString() + "\n";
         }
 
         return ret;
@@ -54,6 +60,9 @@ public class Company {
         double total = 0;
 
         for (int i = 0; i < entities.length; i++) {
+            if (entities[i] == null) {
+                continue;
+            }
             total += entities[i].amountOwed();
         }
 
