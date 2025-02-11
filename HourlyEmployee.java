@@ -13,7 +13,11 @@ public class HourlyEmployee extends Employee {
     }
 
     public double calcPrebonusPay() { // done
-        return hourlyWage * hoursWorked;
+        if (hoursWorked > 40) {
+            return (40 * hourlyWage) + ((hoursWorked - 40) * (hourlyWage * 1.5));
+        } else {
+            return hoursWorked * hourlyWage;
+        }
     }
 
     public String getJobCode() { // done
